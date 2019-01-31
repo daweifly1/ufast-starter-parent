@@ -26,12 +26,10 @@
         <version>1.5.7.RELEASE</version> <!-- lookup parent from repository -->
     </parent>
 
-
-
     <dependencies>
         <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-jetty</artifactId>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-jetty</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -202,8 +200,6 @@
             <url>http://10.100.2.80:8081/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
-
-
 
 
 </project>
