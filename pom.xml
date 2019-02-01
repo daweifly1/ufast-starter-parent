@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>yb.ecp.fast</groupId>
-    <artifactId>ufast-starter-parent</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <groupId>com.xgit.bj</groupId>
+    <artifactId>bj-starter-parent</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -13,11 +13,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR4</spring-cloud.version>
-        <fast-platform.version>0.0.3-SNAPSHOT</fast-platform.version>
+        <fast-platform.version>1.0.1-SNAPSHOT</fast-platform.version>
     </properties>
 
     <modules>
 
+        <module>misc</module>
     </modules>
 
     <parent>
