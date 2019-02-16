@@ -5,6 +5,7 @@ public class SearchCommonVO<T> {
     private int pageSize;
     private T filters;
     private String sort;
+    private String orderBy;
 
     public String getSort() {
         return this.sort;
@@ -36,5 +37,13 @@ public class SearchCommonVO<T> {
 
     public void setFilters(T filters) {
         this.filters = filters;
+    }
+
+    public String getOrderBy() {
+        return this.orderBy;
+    }
+
+    public void setOrderBy(String orderBy) {
+        this.orderBy = orderBy;
     }
 }

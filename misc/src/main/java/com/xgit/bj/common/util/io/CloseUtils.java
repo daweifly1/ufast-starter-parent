@@ -14,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
 
 public abstract class CloseUtils
 {
-  private static final Log logger = LogFactory.getLog(CloseUtils.class);
+  private static final Log log = LogFactory.getLog(CloseUtils.class);
   
   public static void close(ResultSet rs)
   {
@@ -25,7 +25,7 @@ public abstract class CloseUtils
       }
       catch (SQLException e)
       {
-        logger.error("close ResultSet failed.", e);
+        log.error("close ResultSet failed.", e);
       }
     }
   }
@@ -39,7 +39,7 @@ public abstract class CloseUtils
       }
       catch (SQLException e)
       {
-        logger.error("close Statement failed.", e);
+        log.error("close Statement failed.", e);
       }
     }
   }
@@ -53,7 +53,7 @@ public abstract class CloseUtils
       }
       catch (SQLException e)
       {
-        logger.error("close PreparedStatement failed.", e);
+        log.error("close PreparedStatement failed.", e);
       }
     }
   }
@@ -67,7 +67,7 @@ public abstract class CloseUtils
       }
       catch (SQLException e)
       {
-        logger.error("close Connection failed.", e);
+        log.error("close Connection failed.", e);
       }
     }
   }
@@ -82,7 +82,7 @@ public abstract class CloseUtils
         }
         catch (Exception e)
         {
-          logger.error("close closeable failed.", e);
+          log.error("close closeable failed.", e);
         }
       }
     }
@@ -97,7 +97,7 @@ public abstract class CloseUtils
       }
       catch (IOException e)
       {
-        logger.error("close socket failed.", e);
+        log.error("close socket failed.", e);
       }
     }
   }
@@ -111,7 +111,7 @@ public abstract class CloseUtils
       }
       catch (IOException e)
       {
-        logger.error("close socket failed.", e);
+        log.error("close socket failed.", e);
       }
     }
   }
@@ -127,12 +127,12 @@ public abstract class CloseUtils
           if (null != meyhod) {
             meyhod.invoke(obj, new Object[0]);
           } else {
-            logger.error("This object can not be close, because this object don not have close method.");
+            log.error("This object can not be close, because this object don not have close method.");
           }
         }
         catch (Exception e)
         {
-          logger.error("close Object failed.", e);
+          log.error("close Object failed.", e);
         }
       }
     }
