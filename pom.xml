@@ -3,9 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xgit.bj</groupId>
-    <artifactId>bj-starter-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <!--    <groupId>com.xgit.bj</groupId>-->
+    <!--    <artifactId>bj-starter-parent</artifactId>-->
+    <!--    <version>1.0.1-SNAPSHOT</version>-->
+
+    <groupId>yb.ecp.fast</groupId>
+    <artifactId>ufast-starter-parent</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -13,12 +17,16 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR4</spring-cloud.version>
-        <fast-platform.version>1.0.1-SNAPSHOT</fast-platform.version>
+        <fast-platform.version>0.0.3-SNAPSHOT</fast-platform.version>
     </properties>
 
     <modules>
 
         <module>misc</module>
+        <module>oauth2-server-client</module>
+        <module>fast-logging-starter</module>
+        <module>fast-spring-boot-starter</module>
+        <module>fast-config-starter</module>
     </modules>
 
     <parent>
@@ -95,11 +103,13 @@
                 <artifactId>spring-cloud-config-server</artifactId>
                 <version>1.3.3.RELEASE</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka-server -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-eureka-server</artifactId>
+                <artifactId>spring-cloud-starter-eureka</artifactId>
                 <version>1.3.5.RELEASE</version>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-zuul</artifactId>
@@ -180,15 +190,7 @@
             <!--ufast platform related end -->
         </dependencies>
     </dependencyManagement>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>2.2</version>
-            </plugin>
-        </plugins>
-    </reporting>
+
     <distributionManagement>
         <repository>
             <id>maven-releases</id>
@@ -202,5 +204,30 @@
         </snapshotRepository>
     </distributionManagement>
 
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
