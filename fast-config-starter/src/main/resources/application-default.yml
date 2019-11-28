@@ -1,0 +1,48 @@
+management:
+  security:
+    enabled: false
+  context-path: /umigo
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 15
+    lease-expiration-duration-in-seconds: 45
+    registry-fetch-interval-seconds: 15
+    health-check-url-path: ${management.context-path}/health
+spring:
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 192.168
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+  zipkin:
+    enabled: false
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 0.0.1
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+zuul:
+  sensitive-headers: x-user-id,x-access-client,x-case-ticket
+  ignored-patterns: /**/fast-amigo/**
+#  set-content-length: true
+  host:
+    socket-timeout-millis: 2000
+    connect-timeout-millis: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+ribbon:
+  ReadTimeout: 15000
+  ConnectTimeout: 15000
