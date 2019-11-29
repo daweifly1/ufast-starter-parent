@@ -1,0 +1,66 @@
+fast:
+  webfront:
+    path: /root/xcmg
+  auth:
+    login:
+      url: /ius/auth/login,/ius/auth/sigin
+    logout:
+      url: /ius/auth/logout,/ius/auth/signout
+spring:
+  session:
+    store-type: redis
+  redis:
+    host: 10.100.2.106
+    port: 6379
+#  zipkin:
+#    enabled: false
+#    base-url: http://192.168.1.149:9002
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${fast.webfront.path}
+  freemarker:
+    enabled: true
+    template-loader-path: classpath:/META-INF/templates/
+    suffix: .ftl
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+zuul:
+  routes:
+    api-a:
+      path: /ius/**
+      serviceId: pro-auth
+    api-b:
+      path: /charge/**
+      serviceId: nju-charging-service
+    api-c:
+      path: /dev/**
+      serviceId: device-service
+    api-d:
+      path: /ous/**
+      serviceId: fast-oauth2-server
+    api-s:
+      path: /iss/**
+      serviceId: starter-service
+cas:
+  feign:
+    name: ljy-nju-charging-service
+  auth:
+    ticket-key: ticket
+  defaultUrl: http://219.219.116.11:8080
+logging:
+  file: gatewaylog
+  level:
+    root: info
+    ufast: info
+server:
+  session:
+    timeout: 3600
+#server:
+#  session:
+#    cookie:
+#      name: TEST2
+
+
+
